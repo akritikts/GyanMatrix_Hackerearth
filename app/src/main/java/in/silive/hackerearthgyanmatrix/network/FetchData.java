@@ -89,6 +89,7 @@ public class FetchData extends AsyncTask<Void,Void,String> {
         try {
             Log.d("TAG", "try parsing");
 
+            Log.d("TAG", "JSON data : "+s);
             //Log.d("TAG", "JSON obj created");
                 /*JSONArray List_of_kings = King_object.getJSONArray();*/
             Log.d("TAG", "JSON array fetched");

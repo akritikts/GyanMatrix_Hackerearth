@@ -32,6 +32,7 @@ public class BatsmenList {
         for(int i=0;i<names_of_players.size();i++){
             blist.add(buildBatsmenInfo(names_of_players.get(i),desc_of_players.get(i),country_of_players.get(i),img_of_players.get(i),runs_of_players.get(i),matches_of_players.get(i)));
         }
+
         return blist;
     }
     private static Batsmen buildBatsmenInfo(String name, String des, String contry, Integer imag, Long runs, Integer match) {

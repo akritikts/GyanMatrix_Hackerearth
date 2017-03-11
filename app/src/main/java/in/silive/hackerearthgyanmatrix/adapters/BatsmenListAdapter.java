@@ -9,7 +9,11 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import in.silive.hackerearthgyanmatrix.R;
+import in.silive.hackerearthgyanmatrix.utils.Batsmen;
 
 /**
  * Created by akriti on 11/3/17.
@@ -23,13 +27,17 @@ public class BatsmenListAdapter extends BaseAdapter {
     }
     Context context;
     LayoutInflater inflater;
-    public String list_names[];
-    public Integer list_images[];
+    public ArrayList<String> list_names;
+    public ArrayList<Integer> list_images;
+    List<Batsmen> batsmenList;
 
-    public BatsmenListAdapter(Context context, Integer[] list_images, String[] list_names) {
+    public BatsmenListAdapter(Context context, ArrayList<Integer> list_images, ArrayList<String> list_names) {
         this.context = context;
         this.list_images = list_images;
         this.list_names = list_names;
+    }
+    public BatsmenListAdapter(List<Batsmen> l){
+        this.batsmenList = l;
     }
 
     @Override
@@ -48,15 +56,18 @@ public class BatsmenListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int j, View view, ViewGroup viewGroup) {
         inflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.batsmen_list_adapter,null);
         Holder holder = new Holder();
         holder.player_img = (ImageView)view.findViewById(R.id.player_img);
         holder.player_name = (TextView)view.findViewById(R.id.player_name);
         holder.player_fav = (CheckBox)view.findViewById(R.id.player_fav);
-        holder.player_img.setImageResource(list_images[i]);
-        holder.player_name.setText(list_names[i]);
+        for(int i=0;i<batsmenList.size();i++){
+            holder.player_img.setImageResource(list_images.get(i));
+            holder.player_name.setText(list_names.get(i));
+        }
+
         return view;
     }
 }
