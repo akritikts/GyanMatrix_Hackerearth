@@ -12,7 +12,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
+import in.silive.hackerearthgyanmatrix.utils.BatsmenList;
 import in.silive.hackerearthgyanmatrix.utils.Config;
 
 /**
@@ -28,6 +30,12 @@ public class FetchData extends AsyncTask<Void,Void,String> {
     public ProgressDialog progressDialog;
     public String jsonStr;
 
+    public static ArrayList<String> names_of_players;
+    public static ArrayList<String> desc_of_players;
+    public static ArrayList<Integer> img_of_players;
+    public static ArrayList<String> country_of_players;
+    public static ArrayList<Long> runs_of_players;
+    public static ArrayList<Integer> matches_of_players;
     public FetchData(Context c) {
         context = c;
         this.progressDialog = new ProgressDialog(c);
@@ -80,15 +88,24 @@ public class FetchData extends AsyncTask<Void,Void,String> {
     public void parsing_Batsmen(String s) {
         try {
             Log.d("TAG", "try parsing");
-            JSONArray List_of_batsmen = new JSONArray(jsonStr);
+
             //Log.d("TAG", "JSON obj created");
                 /*JSONArray List_of_kings = King_object.getJSONArray();*/
             Log.d("TAG", "JSON array fetched");
+            JSONObject jsonObject = new JSONObject(jsonStr);
+            JSONArray List_of_batsmen = jsonObject.getJSONArray("records");
             for (int i = 0; i < List_of_batsmen.length(); i++) {
                 JSONObject batsm_list = List_of_batsmen.getJSONObject(i);
+                names_of_players.add(batsm_list.getString("name"));
+                desc_of_players.add(batsm_list.getString("description"));
+                country_of_players.add(batsm_list.getString("country"));
+                img_of_players.add(batsm_list.getInt("image"));
+                matches_of_players.add(batsm_list.getInt("matches_played"));
+                runs_of_players.add(batsm_list.getLong("total_score"));
 
             }
             Log.d("TAG", "Item added");
+            BatsmenList batsmen = new BatsmenList(country_of_players,desc_of_players,img_of_players,matches_of_players,names_of_players,runs_of_players);
 
         }
 
