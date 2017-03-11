@@ -13,6 +13,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import in.silive.hackerearthgyanmatrix.utils.Config;
+
 /**
  * Created by akriti on 11/3/17.
  */
@@ -34,7 +36,7 @@ public class FetchData extends AsyncTask<Void,Void,String> {
     @Override
     protected String doInBackground(Void... voids) {
         try {
-            H_url = new URL("http://starlord.hackerearth.com/gotjson");
+            H_url = new URL(Config.API_KEY);
             H_connection = (HttpURLConnection) H_url.openConnection();
             Log.d("TAG", "url : " + H_url);
             Log.d("TAG", "connection");
@@ -46,7 +48,7 @@ public class FetchData extends AsyncTask<Void,Void,String> {
             H_bufferedReader = new BufferedReader(new InputStreamReader(H_connection.getInputStream()));
             Log.d("TAG", "buff readr");
             HttpHandler sh = new HttpHandler();
-            jsonStr = sh.makeServiceCall("http://starlord.hackerearth.com/gotjson");
+            jsonStr = sh.makeServiceCall(Config.API_KEY);
         } catch (Exception e) {
             Log.d("TAG", "NO connection");
             e.printStackTrace();
@@ -83,7 +85,7 @@ public class FetchData extends AsyncTask<Void,Void,String> {
                 /*JSONArray List_of_kings = King_object.getJSONArray();*/
             Log.d("TAG", "JSON array fetched");
             for (int i = 0; i < List_of_batsmen.length(); i++) {
-                JSONObject k_list = List_of_batsmen.getJSONObject(i);
+                JSONObject batsm_list = List_of_batsmen.getJSONObject(i);
 
             }
             Log.d("TAG", "Item added");
