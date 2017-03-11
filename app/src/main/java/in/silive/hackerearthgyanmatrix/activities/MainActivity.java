@@ -1,7 +1,9 @@
-package in.silive.hackerearthgyanmatrix;
+package in.silive.hackerearthgyanmatrix.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import in.silive.hackerearthgyanmatrix.R;
 
 public class MainActivity extends AppCompatActivity {
 
