@@ -26,9 +26,8 @@ public class BatsmenListAdapter extends BaseAdapter {
     public String list_names[];
     public Integer list_images[];
 
-    public BatsmenListAdapter(Context context, LayoutInflater inflater, Integer[] list_images, String[] list_names) {
+    public BatsmenListAdapter(Context context, Integer[] list_images, String[] list_names) {
         this.context = context;
-        this.inflater = inflater;
         this.list_images = list_images;
         this.list_names = list_names;
     }
