@@ -1,6 +1,9 @@
 package in.silive.hackerearthgyanmatrix.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +12,10 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +35,10 @@ public class BatsmenListAdapter extends BaseAdapter {
     Context context;
     LayoutInflater inflater;
     public ArrayList<String> list_names;
-    public ArrayList<Integer> list_images;
+    public ArrayList<String> list_images;
     List<Batsmen> batsmenList;
 
-    public BatsmenListAdapter(Context context, ArrayList<Integer> list_images, ArrayList<String> list_names) {
+    public BatsmenListAdapter(Context context, ArrayList<String> list_images, ArrayList<String> list_names) {
         this.context = context;
         this.list_images = list_images;
         this.list_names = list_names;
@@ -42,7 +49,7 @@ public class BatsmenListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return list_names.size();
     }
 
     @Override
@@ -64,10 +71,28 @@ public class BatsmenListAdapter extends BaseAdapter {
         holder.player_name = (TextView)view.findViewById(R.id.player_name);
         holder.player_fav = (CheckBox)view.findViewById(R.id.player_fav);
         for(int i=0;i<batsmenList.size();i++){
-            holder.player_img.setImageResource(list_images.get(i));
+            /*holder.player_img.setImageBitmap(getBitmapFromURL(list_images.get(i)));*/
+            holder.player_img.setImageResource(R.drawable.bat);
             holder.player_name.setText(list_names.get(i));
         }
 
         return view;
+    }
+    public static Bitmap getBitmapFromURL(String src) {
+        try {
+            Log.e("src",src);
+            URL url = new URL(src);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoInput(true);
+            connection.connect();
+            InputStream input = connection.getInputStream();
+            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+            Log.e("Bitmap","returned");
+            return myBitmap;
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e("Exception",e.getMessage());
+            return null;
+        }
     }
 }

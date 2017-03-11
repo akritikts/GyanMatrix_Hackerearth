@@ -69,8 +69,7 @@
         android:id="@+id/lview"
         android:scrollbars="vertical"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/tabview">
+        android:layout_alignParentStart="true">
 
     </ListView>
     </android.support.design.widget.CoordinatorLayout>
