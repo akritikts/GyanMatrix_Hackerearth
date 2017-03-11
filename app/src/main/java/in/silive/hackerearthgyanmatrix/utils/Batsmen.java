@@ -79,6 +79,9 @@ public class Batsmen implements Serializable {
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
+    public static void incCount(){
+        count++;
+    }
 
     @Override
     public String toString() {
