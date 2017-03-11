@@ -67,7 +67,7 @@ public class FetchData extends AsyncTask<Void,Void,String> {
     {
         // super.onPostExecute(s);
 
-        parsing_Kings(s);
+        parsing_Batsmen(s);
         //notify data set changed;
         progressDialog.dismiss();
 
@@ -75,7 +75,7 @@ public class FetchData extends AsyncTask<Void,Void,String> {
 
     }
 
-    public void parsing_Kings(String s) {
+    public void parsing_Batsmen(String s) {
         try {
             Log.d("TAG", "try parsing");
             JSONArray List_of_batsmen = new JSONArray(jsonStr);
