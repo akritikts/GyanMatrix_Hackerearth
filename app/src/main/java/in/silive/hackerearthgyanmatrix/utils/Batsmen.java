@@ -85,7 +85,7 @@ public class Batsmen implements Serializable {
 
     @Override
     public String toString() {
-        return "Movie{" +
+        return "Player{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

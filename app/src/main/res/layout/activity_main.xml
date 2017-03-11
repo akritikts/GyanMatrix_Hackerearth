@@ -42,6 +42,7 @@
                     android:layout_height="match_parent"
                     android:hint="Search"
                     android:singleLine="true"
+                    android:imeOptions="actionDone"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:textColor="#333"

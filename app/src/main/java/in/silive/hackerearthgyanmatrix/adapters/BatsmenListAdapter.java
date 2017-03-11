@@ -70,11 +70,11 @@ public class BatsmenListAdapter extends BaseAdapter {
         holder.player_img = (ImageView)view.findViewById(R.id.player_img);
         holder.player_name = (TextView)view.findViewById(R.id.player_name);
         holder.player_fav = (CheckBox)view.findViewById(R.id.player_fav);
-        for(int i=0;i<batsmenList.size();i++){
-            /*holder.player_img.setImageBitmap(getBitmapFromURL(list_images.get(i)));*/
+
+            //holder.player_img.setImageBitmap(getBitmapFromURL(list_images.get(j)));
             holder.player_img.setImageResource(R.drawable.bat);
-            holder.player_name.setText(list_names.get(i));
-        }
+            holder.player_name.setText(list_names.get(j));
+
 
         return view;
     }

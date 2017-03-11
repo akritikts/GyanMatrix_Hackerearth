@@ -2,10 +2,13 @@ package in.silive.hackerearthgyanmatrix.activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -20,7 +23,7 @@ import java.util.ArrayList;
 import in.silive.hackerearthgyanmatrix.R;
 import in.silive.hackerearthgyanmatrix.adapters.BatsmenListAdapter;
 import in.silive.hackerearthgyanmatrix.network.HttpHandler;
-import in.silive.hackerearthgyanmatrix.utils.BatsmenList;
+import in.silive.hackerearthgyanmatrix.utils.Batsmen;
 import in.silive.hackerearthgyanmatrix.utils.Config;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,8 +50,18 @@ public class MainActivity extends AppCompatActivity {
         sprogressDialog.setMessage("Loading");
         sprogressDialog.show();*/
         new FetchData(this).execute();
+        batsmen_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MainActivity.this,BatsmenDetail.class);
+                Batsmen b = new Batsmen();
+                b.setId(1);
+                intent.putExtra("ITEM",b.toString());
+                startActivity(intent);
+            }
+        });
         //List<Batsmen > l = BatsmenList.getBatsmenList(this);
-        Log.d("TAG","List of images : "+BatsmenList.img_of_players+"\n List of Players : "+BatsmenList.names_of_players);
+        //Log.d("TAG","List of images : "+BatsmenList.img_of_players+"\n List of Players : "+BatsmenList.names_of_players);
 
         //sprogressDialog.dismiss();
     }

@@ -1,26 +1,10 @@
 package in.silive.hackerearthgyanmatrix.network;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-
-import in.silive.hackerearthgyanmatrix.utils.BatsmenList;
-import in.silive.hackerearthgyanmatrix.utils.Config;
-
 /**
  * Created by akriti on 11/3/17.
  */
 
+/*
 public class FetchData extends AsyncTask<Void,Void,String> {
     public Context context;
     public URL H_url;
@@ -91,7 +75,9 @@ public class FetchData extends AsyncTask<Void,Void,String> {
 
             Log.d("TAG", "JSON data : "+s);
             //Log.d("TAG", "JSON obj created");
-                /*JSONArray List_of_kings = King_object.getJSONArray();*/
+                */
+/*JSONArray List_of_kings = King_object.getJSONArray();*//*
+
             Log.d("TAG", "JSON array fetched");
             JSONObject jsonObject = new JSONObject(jsonStr);
             JSONArray List_of_batsmen = jsonObject.getJSONArray("records");
@@ -119,3 +105,4 @@ public class FetchData extends AsyncTask<Void,Void,String> {
     }
 }
 
+*/

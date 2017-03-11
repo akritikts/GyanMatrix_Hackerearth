@@ -43,6 +43,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:src="@drawable/bat"
                 android:layout_margin="5dp"
                 android:padding="3dp"/>
             <TextView
@@ -54,6 +55,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_margin="5dp"
+                android:text="Name of Player"
                 android:padding="3dp"/>
         </LinearLayout>
         <LinearLayout
@@ -98,7 +100,8 @@
                 android:layout_height="match_parent"
                 android:textSize="12sp"
                 android:textColor="#000000"
-                android:text="Share"
+                android:text="Back"
+                android:id="@+id/back"
                 android:layout_margin="3dp"
                 android:padding="1dp"
                 android:layout_gravity="center"
