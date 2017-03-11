@@ -15,6 +15,7 @@ public class Batsmen implements Serializable {
     private String country;
     private Integer matches;
     private Long runs;
+    private Integer img;
 
     public Batsmen() {
     }
@@ -88,6 +89,7 @@ public class Batsmen implements Serializable {
                 ", country='" + country + '\'' +
                 ", matches='" + matches.toString() + '\'' +
                 ", runs='" + runs.toString() + '\'' +
+                ", image='"+img.toString()+
                 '}';
     }
 }
